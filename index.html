@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Codedge Infotech – Enterprise AI Infrastructure</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Codedge Infotech builds production-ready AI infrastructure, ModelOps, and enterprise automation systems. Trusted by 50+ enterprises globally.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
@@ -19,7 +18,6 @@ body {
     background: #0A0A0A;
     color: #FFFFFF;
     line-height: 1.5;
-    overflow-x: hidden;
 }
 
 .container {
@@ -28,7 +26,6 @@ body {
     padding: 0 24px;
 }
 
-/* Typography */
 h1 {
     font-size: 72px;
     font-weight: 800;
@@ -40,24 +37,6 @@ h2 {
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 20px;
-}
-
-h3 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-header p {
-    font-size: 18px;
-    color: #B0B0B0;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 /* Buttons */
@@ -151,17 +130,16 @@ header {
     color: #FC6B08;
 }
 
-/* Hero Section with Background Image */
+/* Hero Section */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
-    overflow: hidden;
     padding: 160px 0 100px;
+    background: radial-gradient(circle at 20% 30%, #1A1A3A 0%, #0A0A0A 100%);
 }
 
-/* Hero Background Image */
 .hero-background {
     position: absolute;
     top: 0;
@@ -169,19 +147,8 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.3;
     z-index: 0;
-}
-
-/* Gradient Overlay for better text readability */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(26, 26, 58, 0.75) 100%);
-    z-index: 1;
 }
 
 .hero .container {
@@ -199,7 +166,6 @@ header {
     font-weight: 600;
     margin-bottom: 32px;
     border: 1px solid rgba(62, 64, 149, 0.3);
-    backdrop-filter: blur(5px);
 }
 
 .gradient-text {
@@ -264,37 +230,35 @@ header {
     background: #050505;
 }
 
-/* Metrics Row */
+/* FIXED: Metrics Row - Better Spacing */
 .metrics-row {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    align-items: center;
+    gap: 20px;
     flex-wrap: wrap;
     text-align: center;
 }
 
 .metric {
     flex: 1;
-    min-width: 150px;
-    padding: 20px;
-    border-right: 1px solid #222;
-}
-
-.metric:last-child {
-    border-right: none;
+    min-width: 140px;
+    padding: 20px 10px;
+    text-align: center;
 }
 
 .metric-number {
-    font-size: 56px;
+    font-size: 42px;
     font-weight: 800;
     color: #FC6B08;
-    line-height: 1;
+    line-height: 1.2;
+    margin-bottom: 8px;
 }
 
 .metric-label {
-    font-size: 14px;
+    font-size: 13px;
     color: #B0B0B0;
-    margin-top: 12px;
+    line-height: 1.4;
 }
 
 /* Grids */
@@ -395,7 +359,6 @@ footer {
     color: #B0B0B0;
 }
 
-/* Parent Badge */
 .parent-badge {
     position: fixed;
     bottom: 20px;
@@ -416,7 +379,8 @@ footer {
     h2 { font-size: 36px; }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: repeat(3, 1fr); }
-    .metric { border-right: none; }
+    .metric { min-width: 120px; }
+    .metric-number { font-size: 32px; }
 }
 
 @media (max-width: 768px) {
@@ -427,6 +391,9 @@ footer {
     .nav-links { display: none; }
     .hero-stats { flex-direction: column; gap: 16px; }
     .cta-section { padding: 40px 24px; }
+    .metrics-row { flex-direction: column; align-items: stretch; }
+    .metric { border-bottom: 1px solid #222; }
+    .metric:last-child { border-bottom: none; }
 }
 </style>
 </head>
@@ -448,11 +415,9 @@ footer {
 </div>
 </header>
 
-<!-- Hero Section with Background Image -->
+<!-- Hero Section -->
 <section class="hero">
-    <!-- Hero Background Image -->
-    <img class="hero-background" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" alt="AI Infrastructure Data Center">
-    
+    <img class="hero-background" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" alt="Data Center">
     <div class="container">
         <div class="hero-badge">ENTERPRISE AI INFRASTRUCTURE</div>
         <h1>The AI Backbone for<br><span class="gradient-text">the World's Most Demanding</span><br>Enterprises</h1>
@@ -482,31 +447,33 @@ footer {
 </div>
 </div>
 
-<!-- Metrics -->
+<!-- FIXED: Metrics Section -->
 <section class="section">
-<div class="container metrics-row">
+<div class="container">
+<div class="metrics-row">
 <div class="metric"><div class="metric-number">$2.4B+</div><div class="metric-label">Client Value Unlocked</div></div>
 <div class="metric"><div class="metric-number">500+</div><div class="metric-label">AI Models Deployed</div></div>
 <div class="metric"><div class="metric-number">&lt;10ms</div><div class="metric-label">Avg. Inference Latency</div></div>
 <div class="metric"><div class="metric-number">99.999%</div><div class="metric-label">Uptime SLA</div></div>
 <div class="metric"><div class="metric-number">24/7/365</div><div class="metric-label">Global Support</div></div>
 </div>
+</div>
 </section>
 
 <!-- Products -->
 <section class="section section-dark">
 <div class="container">
-<div class="section-header">
+<div class="section-header" style="text-align: center; margin-bottom: 60px;">
 <h2>One Platform.<br><span style="color: #FC6B08;">Infinite Scale.</span></h2>
-<p>From raw data to deployed intelligence. A seamless, secure, sovereign ecosystem.</p>
+<p style="color: #B0B0B0; max-width: 700px; margin: 0 auto;">From raw data to deployed intelligence. A seamless, secure, sovereign ecosystem.</p>
 </div>
 <div class="grid-3">
-<div class="card"><div class="card-icon"><i class="fas fa-brain"></i></div><div class="card-category">Infrastructure</div><h3>AI Sandbox™</h3><p>Enterprise-grade environment for AI experimentation with isolated compute clusters and on-demand GPUs.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-cogs"></i></div><div class="card-category">Infrastructure</div><h3>ModelOps™</h3><p>Production ML lifecycle management with CI/CD pipelines, model versioning, and automated deployment.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-database"></i></div><div class="card-category">Infrastructure</div><h3>DataCore™</h3><p>Unified data fabric for enterprise-scale AI workloads with real-time streaming and batch processing.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><div class="card-category">Applications</div><h3>Career Engine™</h3><p>AI-powered talent matching and career acceleration platform used by CodEdge Academy and enterprises.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-chart-bar"></i></div><div class="card-category">Applications</div><h3>InsightX™</h3><p>Real-time business intelligence and predictive analytics with customizable dashboards.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><div class="card-category">Security</div><h3>GuardianAI™</h3><p>AI-native cybersecurity and threat detection with real-time anomaly detection and automated response.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-brain"></i></div><div class="card-category">Infrastructure</div><h3>AI Sandbox™</h3><p>Enterprise-grade environment for AI experimentation with isolated compute clusters.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-cogs"></i></div><div class="card-category">Infrastructure</div><h3>ModelOps™</h3><p>Production ML lifecycle management with CI/CD pipelines and automated deployment.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-database"></i></div><div class="card-category">Infrastructure</div><h3>DataCore™</h3><p>Unified data fabric for enterprise-scale AI workloads with real-time processing.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><div class="card-category">Applications</div><h3>Career Engine™</h3><p>AI-powered talent matching and career acceleration platform.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-chart-bar"></i></div><div class="card-category">Applications</div><h3>InsightX™</h3><p>Real-time business intelligence and predictive analytics.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><div class="card-category">Security</div><h3>GuardianAI™</h3><p>AI-native cybersecurity and threat detection with automated response.</p></div>
 </div>
 </div>
 </section>
@@ -529,13 +496,13 @@ footer {
 <footer>
 <div class="container">
 <div class="footer-grid">
-<div class="footer-col"><h4>CODEDGE INFOTECH</h4><p>Building AI systems that scale for enterprises worldwide. Part of CodEdge Group.</p><div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-github"></i></a></div></div>
-<div class="footer-col"><h4>Products</h4><a href="#">AI Sandbox™</a><a href="#">ModelOps™</a><a href="#">DataCore™</a><a href="#">Career Engine™</a><a href="#">InsightX™</a><a href="#">GuardianAI™</a></div>
-<div class="footer-col"><h4>Solutions</h4><a href="#">Finance</a><a href="#">Healthcare</a><a href="#">Education</a><a href="#">Enterprise</a></div>
-<div class="footer-col"><h4>Resources</h4><a href="#">Case Studies</a><a href="#">White Papers</a><a href="#">Documentation</a><a href="#">API Reference</a></div>
-<div class="footer-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Careers</a><a href="#">CodEdge Academy</a><a href="#">Contact</a></div>
+<div class="footer-col"><h4>CODEDGE INFOTECH</h4><p>Building AI systems that scale for enterprises worldwide.</p><div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
+<div class="footer-col"><h4>Products</h4><a href="#">AI Sandbox™</a><a href="#">ModelOps™</a><a href="#">DataCore™</a></div>
+<div class="footer-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Careers</a><a href="#">CodEdge Academy</a></div>
+<div class="footer-col"><h4>Resources</h4><a href="#">Case Studies</a><a href="#">White Papers</a><a href="#">Documentation</a></div>
+<div class="footer-col"><h4>Connect</h4><a href="#">Contact</a><a href="#">LinkedIn</a><a href="#">Twitter</a></div>
 </div>
-<div class="copyright">© 2026 Codedge Infotech Pvt Ltd. All rights reserved. Empowering enterprises with AI infrastructure.</div>
+<div class="copyright">© 2026 Codedge Infotech Pvt Ltd. All rights reserved.</div>
 </div>
 </footer>
 
