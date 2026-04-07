@@ -94,23 +94,6 @@ h3 {
     transform: translateY(-2px);
 }
 
-.btn-outline {
-    display: inline-block;
-    background: transparent;
-    color: #B0B0B0;
-    font-weight: 500;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    border: 1px solid #333;
-    transition: all 0.3s ease;
-}
-
-.btn-outline:hover {
-    border-color: #FC6B08;
-    color: #FC6B08;
-}
-
 /* Header */
 header {
     position: fixed;
@@ -168,7 +151,7 @@ header {
     color: #FC6B08;
 }
 
-/* Hero Section */
+/* Hero Section with Background Image */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -176,7 +159,34 @@ header {
     position: relative;
     overflow: hidden;
     padding: 160px 0 100px;
-    background: radial-gradient(circle at 20% 30%, #1A1A3A 0%, #0A0A0A 100%);
+}
+
+/* Hero Background Image */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Gradient Overlay for better text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(26, 26, 58, 0.75) 100%);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-badge {
@@ -189,6 +199,7 @@ header {
     font-weight: 600;
     margin-bottom: 32px;
     border: 1px solid rgba(62, 64, 149, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .gradient-text {
@@ -293,12 +304,6 @@ header {
     gap: 40px;
 }
 
-.grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
-
 /* Cards */
 .card {
     background: #111111;
@@ -329,102 +334,10 @@ header {
     display: inline-block;
 }
 
-/* Client Logos */
-.clients-section {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.client-logos {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 40px;
-}
-
-.client-logo {
-    font-size: 16px;
-    font-weight: 600;
+.card p {
     color: #B0B0B0;
-    opacity: 0.6;
-    transition: all 0.3s;
-    letter-spacing: 1px;
-}
-
-.client-logo:hover {
-    opacity: 1;
-    color: #FC6B08;
-}
-
-/* Testimonials */
-.testimonial-card {
-    background: #111111;
-    border-radius: 24px;
-    padding: 40px;
-    border: 1px solid #222;
-}
-
-.testimonial-text {
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.6;
-    color: #B0B0B0;
-    margin-bottom: 32px;
-    font-style: italic;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.author-avatar {
-    width: 56px;
-    height: 56px;
-    background: #3E4095;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 20px;
-}
-
-/* Team Section */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
-
-.team-card {
-    text-align: center;
-    padding: 24px;
-    background: #111111;
-    border-radius: 20px;
-    border: 1px solid #222;
-    transition: all 0.3s;
-}
-
-.team-card:hover {
-    transform: translateY(-4px);
-    border-color: #3E4095;
-}
-
-.team-avatar {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, #3E4095, #FC6B08);
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    font-weight: 800;
-    color: white;
 }
 
 /* CTA Section */
@@ -501,7 +414,7 @@ footer {
 @media (max-width: 1024px) {
     h1 { font-size: 48px; }
     h2 { font-size: 36px; }
-    .grid-3, .grid-4, .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: repeat(3, 1fr); }
     .metric { border-right: none; }
 }
@@ -509,7 +422,7 @@ footer {
 @media (max-width: 768px) {
     h1 { font-size: 36px; }
     h2 { font-size: 28px; }
-    .grid-3, .grid-4, .team-grid { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .hero-stats { flex-direction: column; gap: 16px; }
@@ -535,23 +448,26 @@ footer {
 </div>
 </header>
 
-<!-- Hero Section -->
+<!-- Hero Section with Background Image -->
 <section class="hero">
-<div class="container">
-<div class="hero-badge">ENTERPRISE AI INFRASTRUCTURE</div>
-<h1>The AI Backbone for<br><span class="gradient-text">the World's Most Demanding</span><br>Enterprises</h1>
-<p style="font-size: 18px; color: #B0B0B0; max-width: 600px; margin-bottom: 40px;">Production-ready ModelOps, Data Fabric, and Intelligent Automation. Deployed globally. Trusted relentlessly.</p>
-<div style="display: flex; gap: 20px; flex-wrap: wrap;">
-<a href="#" class="btn-primary">Explore the Platform →</a>
-<a href="#" class="btn-secondary">Talk to an Engineer</a>
-</div>
-<div class="hero-stats">
-<div class="hero-stat"><div class="number">1,200+</div><div class="label">Production Models</div></div>
-<div class="hero-stat"><div class="number">99.999%</div><div class="label">Uptime SLA</div></div>
-<div class="hero-stat"><div class="number">50+</div><div class="label">Enterprise Clients</div></div>
-<div class="hero-stat"><div class="number">4</div><div class="label">Global Regions</div></div>
-</div>
-</div>
+    <!-- Hero Background Image -->
+    <img class="hero-background" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" alt="AI Infrastructure Data Center">
+    
+    <div class="container">
+        <div class="hero-badge">ENTERPRISE AI INFRASTRUCTURE</div>
+        <h1>The AI Backbone for<br><span class="gradient-text">the World's Most Demanding</span><br>Enterprises</h1>
+        <p style="font-size: 18px; color: #B0B0B0; max-width: 600px; margin-bottom: 40px;">Production-ready ModelOps, Data Fabric, and Intelligent Automation. Deployed globally. Trusted relentlessly.</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <a href="#" class="btn-primary">Explore the Platform →</a>
+            <a href="#" class="btn-secondary">Talk to an Engineer</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat"><div class="number">1,200+</div><div class="label">Production Models</div></div>
+            <div class="hero-stat"><div class="number">99.999%</div><div class="label">Uptime SLA</div></div>
+            <div class="hero-stat"><div class="number">50+</div><div class="label">Enterprise Clients</div></div>
+            <div class="hero-stat"><div class="number">4</div><div class="label">Global Regions</div></div>
+        </div>
+    </div>
 </section>
 
 <!-- Trust Bar -->
@@ -563,8 +479,6 @@ footer {
 <span>GLOBAL RETAIL CHAIN</span><span>✦</span>
 <span>MAJOR TELECOM OPERATOR</span><span>✦</span>
 <span>INSURANCE GIANT</span><span>✦</span>
-<span>TECHNOLOGY MAJOR</span><span>✦</span>
-<span>MANUFACTURING LEADER</span><span>✦</span>
 </div>
 </div>
 
@@ -579,7 +493,7 @@ footer {
 </div>
 </section>
 
-<!-- Products Section -->
+<!-- Products -->
 <section class="section section-dark">
 <div class="container">
 <div class="section-header">
@@ -597,64 +511,7 @@ footer {
 </div>
 </section>
 
-<!-- Client Logos -->
-<section class="clients-section">
-<div class="container">
-<h2 style="font-size: 32px; text-align: center;">Trusted by Industry Leaders</h2>
-<div class="client-logos">
-<span class="client-logo">GLOBAL BANK</span>
-<span class="client-logo">HEALTHCARE GIANT</span>
-<span class="client-logo">RETAIL CHAIN</span>
-<span class="client-logo">TELECOM LEADER</span>
-<span class="client-logo">INSURANCE MAJOR</span>
-<span class="client-logo">TECH UNICORN</span>
-</div>
-</div>
-</section>
-
-<!-- Testimonials -->
-<section class="section section-dark">
-<div class="container">
-<div class="section-header">
-<h2>What Our <span style="color: #FC6B08;">Clients Say</span></h2>
-<p>Trusted by the world's most innovative enterprises</p>
-</div>
-<div class="grid-3">
-<div class="testimonial-card"><div class="testimonial-text">"Codedge Infotech's ModelOps platform reduced our ML deployment time from weeks to hours. Their infrastructure is rock-solid and their support team is exceptional."</div><div class="testimonial-author"><div class="author-avatar">RK</div><div><div class="author-name">Rahul Khanna</div><div class="author-title">CTO, Leading Fintech</div></div></div></div>
-<div class="testimonial-card"><div class="testimonial-text">"The AI Sandbox transformed how our data science team experiments. We've seen 3x faster iteration cycles since implementation. Highly recommend."</div><div class="testimonial-author"><div class="author-avatar">PS</div><div><div class="author-name">Priya Sharma</div><div class="author-title">Head of AI, Enterprise Retail</div></div></div></div>
-<div class="testimonial-card"><div class="testimonial-text">"DataCore unified our fragmented data infrastructure. We now have real-time insights across 50+ sources. A game-changer for our analytics team."</div><div class="testimonial-author"><div class="author-avatar">AM</div><div><div class="author-name">Amit Mehta</div><div class="author-title">CDO, Global Insurance</div></div></div></div>
-</div>
-</div>
-</section>
-
-<!-- Leadership Team -->
-<section class="section">
-<div class="container">
-<div class="section-header">
-<h2>Leadership <span style="color: #FC6B08;">Team</span></h2>
-<p>Experts in AI infrastructure and enterprise technology</p>
-</div>
-<div class="team-grid">
-<div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h3>Rajeev Singh</h3><p style="color: #B0B0B0; font-size: 14px;">Founder & CEO</p><p style="color: #666; font-size: 12px; margin-top: 8px;">Ex-Google, IIT Bombay</p></div>
-<div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h3>Priya Patel</h3><p style="color: #B0B0B0; font-size: 14px;">CTO</p><p style="color: #666; font-size: 12px; margin-top: 8px;">Ex-Microsoft, Stanford</p></div>
-<div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h3>Ankit Sharma</h3><p style="color: #B0B0B0; font-size: 14px;">Head of AI</p><p style="color: #666; font-size: 12px; margin-top: 8px;">Ex-Amazon, IIT Delhi</p></div>
-<div class="team-card"><div class="team-avatar"><i class="fas fa-user"></i></div><h3>Neha Gupta</h3><p style="color: #B0B0B0; font-size: 14px;">VP Engineering</p><p style="color: #666; font-size: 12px; margin-top: 8px;">Ex-Uber, BITS Pilani</p></div>
-</div>
-</div>
-</section>
-
-<!-- Case Study Highlight -->
-<section class="section section-dark">
-<div class="container">
-<div class="grid-3" style="margin-bottom: 40px;">
-<div class="card" style="background: linear-gradient(135deg, #1A1A3A, #0A0A0A);"><div class="card-icon"><i class="fas fa-chart-line"></i></div><div class="card-category">Case Study</div><h3>Global Bank Reduces Fraud by 40%</h3><p>How we deployed ModelOps to transform fraud detection for one of India's largest private banks, saving $12M annually.</p><a href="#" style="color: #FC6B08; text-decoration: none; margin-top: 16px; display: inline-block;">Read More →</a></div>
-<div class="card" style="background: linear-gradient(135deg, #1A1A3A, #0A0A0A);"><div class="card-icon"><i class="fas fa-hospital"></i></div><div class="card-category">Case Study</div><h3>Healthcare Provider Accelerates Diagnosis</h3><p>AI-powered medical imaging analysis reduced diagnosis time by 60% for a leading healthcare network.</p><a href="#" style="color: #FC6B08; text-decoration: none; margin-top: 16px; display: inline-block;">Read More →</a></div>
-<div class="card" style="background: linear-gradient(135deg, #1A1A3A, #0A0A0A);"><div class="card-icon"><i class="fas fa-shopping-cart"></i></div><div class="card-category">Case Study</div><h3>Retail Chain Optimizes Supply Chain</h3><p>Predictive inventory management reduced stockouts by 35% and improved forecast accuracy.</p><a href="#" style="color: #FC6B08; text-decoration: none; margin-top: 16px; display: inline-block;">Read More →</a></div>
-</div>
-</div>
-</section>
-
-<!-- CTA Section -->
+<!-- CTA -->
 <section class="section">
 <div class="container">
 <div class="cta-section">
@@ -675,10 +532,10 @@ footer {
 <div class="footer-col"><h4>CODEDGE INFOTECH</h4><p>Building AI systems that scale for enterprises worldwide. Part of CodEdge Group.</p><div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-github"></i></a></div></div>
 <div class="footer-col"><h4>Products</h4><a href="#">AI Sandbox™</a><a href="#">ModelOps™</a><a href="#">DataCore™</a><a href="#">Career Engine™</a><a href="#">InsightX™</a><a href="#">GuardianAI™</a></div>
 <div class="footer-col"><h4>Solutions</h4><a href="#">Finance</a><a href="#">Healthcare</a><a href="#">Education</a><a href="#">Enterprise</a></div>
-<div class="footer-col"><h4>Resources</h4><a href="#">Case Studies</a><a href="#">White Papers</a><a href="#">Documentation</a><a href="#">API Reference</a><a href="#">Blog</a></div>
-<div class="footer-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Leadership</a><a href="#">Careers</a><a href="#">CodEdge Academy</a><a href="#">Contact</a></div>
+<div class="footer-col"><h4>Resources</h4><a href="#">Case Studies</a><a href="#">White Papers</a><a href="#">Documentation</a><a href="#">API Reference</a></div>
+<div class="footer-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Careers</a><a href="#">CodEdge Academy</a><a href="#">Contact</a></div>
 </div>
-<div class="copyright">© 2026 Codedge Infotech Pvt Ltd. All rights reserved. Empowering enterprises with AI infrastructure. <a href="#" style="color: #B0B0B0; text-decoration: none;">Privacy</a> | <a href="#" style="color: #B0B0B0; text-decoration: none;">Terms</a> | <a href="#" style="color: #B0B0B0; text-decoration: none;">Security</a></div>
+<div class="copyright">© 2026 Codedge Infotech Pvt Ltd. All rights reserved. Empowering enterprises with AI infrastructure.</div>
 </div>
 </footer>
 
