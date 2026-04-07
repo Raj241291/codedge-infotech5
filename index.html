@@ -39,6 +39,24 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: #B0B0B0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 /* Buttons */
 .btn-primary {
     display: inline-block;
@@ -230,7 +248,7 @@ header {
     background: #050505;
 }
 
-/* FIXED: Metrics Row - Better Spacing */
+/* Metrics Row */
 .metrics-row {
     display: flex;
     justify-content: space-between;
@@ -268,6 +286,12 @@ header {
     gap: 40px;
 }
 
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
 /* Cards */
 .card {
     background: #111111;
@@ -302,6 +326,64 @@ header {
     color: #B0B0B0;
     font-size: 14px;
     line-height: 1.6;
+}
+
+/* Client Logos */
+.client-logos {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.client-logo {
+    font-size: 16px;
+    font-weight: 600;
+    color: #B0B0B0;
+    opacity: 0.6;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+}
+
+.client-logo:hover {
+    opacity: 1;
+    color: #FC6B08;
+}
+
+/* Testimonials */
+.testimonial-card {
+    background: #111111;
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid #222;
+}
+
+.testimonial-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #B0B0B0;
+    margin-bottom: 32px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.author-avatar {
+    width: 56px;
+    height: 56px;
+    background: #3E4095;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 /* CTA Section */
@@ -377,23 +459,19 @@ footer {
 @media (max-width: 1024px) {
     h1 { font-size: 48px; }
     h2 { font-size: 36px; }
-    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: repeat(3, 1fr); }
-    .metric { min-width: 120px; }
-    .metric-number { font-size: 32px; }
 }
 
 @media (max-width: 768px) {
     h1 { font-size: 36px; }
     h2 { font-size: 28px; }
-    .grid-3 { grid-template-columns: 1fr; }
+    .grid-3, .grid-4 { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .hero-stats { flex-direction: column; gap: 16px; }
+    .metrics-row { flex-direction: column; }
     .cta-section { padding: 40px 24px; }
-    .metrics-row { flex-direction: column; align-items: stretch; }
-    .metric { border-bottom: 1px solid #222; }
-    .metric:last-child { border-bottom: none; }
 }
 </style>
 </head>
@@ -439,15 +517,16 @@ footer {
 <div class="trust-bar">
 <div class="trust-track">
 <span>TRUSTED BY GLOBAL LEADERS</span><span>✦</span>
-<span>TOP FORTUNE 500 BANK</span><span>✦</span>
-<span>LEADING HEALTHCARE PROVIDER</span><span>✦</span>
-<span>GLOBAL RETAIL CHAIN</span><span>✦</span>
-<span>MAJOR TELECOM OPERATOR</span><span>✦</span>
-<span>INSURANCE GIANT</span><span>✦</span>
+<span>GLOBAL BANK</span><span>✦</span>
+<span>HEALTHCARE GIANT</span><span>✦</span>
+<span>RETAIL CHAIN</span><span>✦</span>
+<span>TELECOM LEADER</span><span>✦</span>
+<span>INSURANCE MAJOR</span><span>✦</span>
+<span>TECH UNICORN</span><span>✦</span>
 </div>
 </div>
 
-<!-- FIXED: Metrics Section -->
+<!-- Metrics -->
 <section class="section">
 <div class="container">
 <div class="metrics-row">
@@ -460,25 +539,90 @@ footer {
 </div>
 </section>
 
-<!-- Products -->
+<!-- Our Products Section -->
 <section class="section section-dark">
 <div class="container">
-<div class="section-header" style="text-align: center; margin-bottom: 60px;">
-<h2>One Platform.<br><span style="color: #FC6B08;">Infinite Scale.</span></h2>
-<p style="color: #B0B0B0; max-width: 700px; margin: 0 auto;">From raw data to deployed intelligence. A seamless, secure, sovereign ecosystem.</p>
+<div class="section-header">
+<h2>Our <span style="color: #FC6B08;">Products</span></h2>
+<p>Enterprise-grade AI infrastructure for every need</p>
 </div>
 <div class="grid-3">
-<div class="card"><div class="card-icon"><i class="fas fa-brain"></i></div><div class="card-category">Infrastructure</div><h3>AI Sandbox™</h3><p>Enterprise-grade environment for AI experimentation with isolated compute clusters.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-cogs"></i></div><div class="card-category">Infrastructure</div><h3>ModelOps™</h3><p>Production ML lifecycle management with CI/CD pipelines and automated deployment.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-database"></i></div><div class="card-category">Infrastructure</div><h3>DataCore™</h3><p>Unified data fabric for enterprise-scale AI workloads with real-time processing.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><div class="card-category">Applications</div><h3>Career Engine™</h3><p>AI-powered talent matching and career acceleration platform.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-chart-bar"></i></div><div class="card-category">Applications</div><h3>InsightX™</h3><p>Real-time business intelligence and predictive analytics.</p></div>
-<div class="card"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><div class="card-category">Security</div><h3>GuardianAI™</h3><p>AI-native cybersecurity and threat detection with automated response.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-brain"></i></div><div class="card-category">Infrastructure</div><h3>AI Sandbox™</h3><p>Enterprise-grade environment for AI experimentation with isolated compute clusters and on-demand GPUs.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-cogs"></i></div><div class="card-category">Infrastructure</div><h3>ModelOps™</h3><p>Production ML lifecycle management with CI/CD pipelines, model versioning, and automated deployment.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-database"></i></div><div class="card-category">Infrastructure</div><h3>DataCore™</h3><p>Unified data fabric for enterprise-scale AI workloads with real-time streaming and batch processing.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><div class="card-category">Applications</div><h3>Career Engine™</h3><p>AI-powered talent matching and career acceleration platform used by CodEdge Academy and enterprises.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-chart-bar"></i></div><div class="card-category">Applications</div><h3>InsightX™</h3><p>Real-time business intelligence and predictive analytics with customizable dashboards.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><div class="card-category">Security</div><h3>GuardianAI™</h3><p>AI-native cybersecurity and threat detection with real-time anomaly detection and automated response.</p></div>
 </div>
 </div>
 </section>
 
-<!-- CTA -->
+<!-- Client Companies Section -->
+<section class="section">
+<div class="container">
+<div class="section-header">
+<h2>Trusted by <span style="color: #FC6B08;">Industry Leaders</span></h2>
+<p>Join 50+ enterprises that rely on Codedge Infotech</p>
+</div>
+<div class="client-logos">
+<span class="client-logo">GLOBAL BANK</span>
+<span class="client-logo">HEALTHCARE GIANT</span>
+<span class="client-logo">RETAIL CHAIN</span>
+<span class="client-logo">TELECOM LEADER</span>
+<span class="client-logo">INSURANCE MAJOR</span>
+<span class="client-logo">TECH UNICORN</span>
+<span class="client-logo">MANUFACTURING LEADER</span>
+</div>
+</div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section section-dark">
+<div class="container">
+<div class="section-header">
+<h2>What Our <span style="color: #FC6B08;">Clients Say</span></h2>
+<p>Trusted by the world's most innovative enterprises</p>
+</div>
+<div class="grid-3">
+<div class="testimonial-card"><div class="testimonial-text">"Codedge Infotech's ModelOps platform reduced our ML deployment time from weeks to hours. Their infrastructure is rock-solid and their support team is exceptional."</div><div class="testimonial-author"><div class="author-avatar">RK</div><div><div class="author-name">Rahul Khanna</div><div class="author-title">CTO, Leading Fintech</div></div></div></div>
+<div class="testimonial-card"><div class="testimonial-text">"The AI Sandbox transformed how our data science team experiments. We've seen 3x faster iteration cycles since implementation. Highly recommend."</div><div class="testimonial-author"><div class="author-avatar">PS</div><div><div class="author-name">Priya Sharma</div><div class="author-title">Head of AI, Enterprise Retail</div></div></div></div>
+<div class="testimonial-card"><div class="testimonial-text">"DataCore unified our fragmented data infrastructure. We now have real-time insights across 50+ sources. A game-changer for our analytics team."</div><div class="testimonial-author"><div class="author-avatar">AM</div><div><div class="author-name">Amit Mehta</div><div class="author-title">CDO, Global Insurance</div></div></div></div>
+</div>
+</div>
+</section>
+
+<!-- Case Studies Section -->
+<section class="section">
+<div class="container">
+<div class="section-header">
+<h2>Success <span style="color: #FC6B08;">Stories</span></h2>
+<p>Real results from real enterprises</p>
+</div>
+<div class="grid-3">
+<div class="card" style="background: linear-gradient(135deg, #1A1A3A, #0A0A0A);"><div class="card-icon"><i class="fas fa-chart-line"></i></div><div class="card-category">Case Study</div><h3>Global Bank Reduces Fraud by 40%</h3><p>How we deployed ModelOps to transform fraud detection for one of India's largest private banks, saving $12M annually.</p><a href="#" style="color: #FC6B08; text-decoration: none; margin-top: 16px; display: inline-block;">Read More →</a></div>
+<div class="card" style="background: linear-gradient(135deg, #1A1A3A, #0A0A0A);"><div class="card-icon"><i class="fas fa-hospital"></i></div><div class="card-category">Case Study</div><h3>Healthcare Provider Accelerates Diagnosis</h3><p>AI-powered medical imaging analysis reduced diagnosis time by 60% for a leading healthcare network.</p><a href="#" style="color: #FC6B08; text-decoration: none; margin-top: 16px; display: inline-block;">Read More →</a></div>
+<div class="card" style="background: linear-gradient(135deg, #1A1A3A, #0A0A0A);"><div class="card-icon"><i class="fas fa-shopping-cart"></i></div><div class="card-category">Case Study</div><h3>Retail Chain Optimizes Supply Chain</h3><p>Predictive inventory management reduced stockouts by 35% and improved forecast accuracy.</p><a href="#" style="color: #FC6B08; text-decoration: none; margin-top: 16px; display: inline-block;">Read More →</a></div>
+</div>
+</div>
+</section>
+
+<!-- Leadership Team -->
+<section class="section section-dark">
+<div class="container">
+<div class="section-header">
+<h2>Leadership <span style="color: #FC6B08;">Team</span></h2>
+<p>Experts in AI infrastructure and enterprise technology</p>
+</div>
+<div class="grid-4">
+<div class="card" style="text-align: center;"><div style="width: 100px; height: 100px; background: linear-gradient(135deg, #3E4095, #FC6B08); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 36px;"><i class="fas fa-user"></i></div><h3>Rajeev Singh</h3><p style="color: #B0B0B0;">Founder & CEO</p><p style="color: #666; font-size: 12px;">Ex-Google, IIT Bombay</p></div>
+<div class="card" style="text-align: center;"><div style="width: 100px; height: 100px; background: linear-gradient(135deg, #3E4095, #FC6B08); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 36px;"><i class="fas fa-user"></i></div><h3>Priya Patel</h3><p style="color: #B0B0B0;">CTO</p><p style="color: #666; font-size: 12px;">Ex-Microsoft, Stanford</p></div>
+<div class="card" style="text-align: center;"><div style="width: 100px; height: 100px; background: linear-gradient(135deg, #3E4095, #FC6B08); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 36px;"><i class="fas fa-user"></i></div><h3>Ankit Sharma</h3><p style="color: #B0B0B0;">Head of AI</p><p style="color: #666; font-size: 12px;">Ex-Amazon, IIT Delhi</p></div>
+<div class="card" style="text-align: center;"><div style="width: 100px; height: 100px; background: linear-gradient(135deg, #3E4095, #FC6B08); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 36px;"><i class="fas fa-user"></i></div><h3>Neha Gupta</h3><p style="color: #B0B0B0;">VP Engineering</p><p style="color: #666; font-size: 12px;">Ex-Uber, BITS Pilani</p></div>
+</div>
+</div>
+</section>
+
+<!-- CTA Section -->
 <section class="section">
 <div class="container">
 <div class="cta-section">
@@ -496,13 +640,13 @@ footer {
 <footer>
 <div class="container">
 <div class="footer-grid">
-<div class="footer-col"><h4>CODEDGE INFOTECH</h4><p>Building AI systems that scale for enterprises worldwide.</p><div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
-<div class="footer-col"><h4>Products</h4><a href="#">AI Sandbox™</a><a href="#">ModelOps™</a><a href="#">DataCore™</a></div>
-<div class="footer-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Careers</a><a href="#">CodEdge Academy</a></div>
-<div class="footer-col"><h4>Resources</h4><a href="#">Case Studies</a><a href="#">White Papers</a><a href="#">Documentation</a></div>
-<div class="footer-col"><h4>Connect</h4><a href="#">Contact</a><a href="#">LinkedIn</a><a href="#">Twitter</a></div>
+<div class="footer-col"><h4>CODEDGE INFOTECH</h4><p>Building AI systems that scale for enterprises worldwide. Part of CodEdge Group.</p><div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-github"></i></a></div></div>
+<div class="footer-col"><h4>Products</h4><a href="#">AI Sandbox™</a><a href="#">ModelOps™</a><a href="#">DataCore™</a><a href="#">Career Engine™</a><a href="#">InsightX™</a><a href="#">GuardianAI™</a></div>
+<div class="footer-col"><h4>Solutions</h4><a href="#">Finance</a><a href="#">Healthcare</a><a href="#">Education</a><a href="#">Enterprise</a></div>
+<div class="footer-col"><h4>Resources</h4><a href="#">Case Studies</a><a href="#">White Papers</a><a href="#">Documentation</a><a href="#">API Reference</a></div>
+<div class="footer-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Careers</a><a href="#">CodEdge Academy</a><a href="#">Contact</a></div>
 </div>
-<div class="copyright">© 2026 Codedge Infotech Pvt Ltd. All rights reserved.</div>
+<div class="copyright">© 2026 Codedge Infotech Pvt Ltd. All rights reserved. Empowering enterprises with AI infrastructure.</div>
 </div>
 </footer>
 
